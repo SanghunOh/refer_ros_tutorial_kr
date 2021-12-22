@@ -96,7 +96,7 @@ class MoveTB3:
 if __name__ == '__main__':
 
     try:        
-        tb3 = TB3Move()
+        tb3 = MoveTB3()
         angle = radians(input("input angle to rotate(deg): "))
         tb3.rotate(angle)
         dist = float(input("input distance to stright(m): "))
