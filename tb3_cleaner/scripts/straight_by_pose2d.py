@@ -52,12 +52,12 @@ class TB3Move:
 if __name__ == '__main__':
     try:
         tb3 = TB3Move()
-        rospy.spin()
         while not rospy.is_shutdown():
             dist = float(input("input distance to straight(m) or to stop 0.0 : "))
             if dist == 0.0:
                 break
             else :
                 tb3.straight(dist)        
+        # rospy.spin()
         
     except rospy.ROSInterruptException:  pass
