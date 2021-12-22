@@ -63,8 +63,10 @@ class MoveTB3:
         else:               # -distance
             tw.linear.x = -LIN_SPD
                         
-        self.pub.publish(tw)        
-        while self.elapsed_dist() < abs(distance):  pass
+        # self.pub.publish(tw)        
+        while self.elapsed_dist() < abs(distance):  
+            self.pub.publish(tw)        
+            pass
             #print("%s(m) of %s(m)" %(round(self.elapsed_dist(),2), round(abs(distance),2))
         
         tw.linear.x = 0;    self.pub.publish(tw)
