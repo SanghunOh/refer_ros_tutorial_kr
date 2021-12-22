@@ -54,7 +54,7 @@ if __name__ == '__main__':
         tb3 = TB3Move()
         rospy.spin()
         while not rospy.is_shutdown():
-            dist = float(input("input distance to straight(m): "))
+            dist = float(input("input distance to straight(m) or to stop 0.0 : "))
             if dist == 0.0:
                 break
             else :
