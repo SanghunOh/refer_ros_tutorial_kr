@@ -97,7 +97,7 @@ if __name__ == '__main__':
 
     try:        
         tb3 = MoveTB3()
-        angle = radians(input("input angle to rotate(deg): "))
+        angle = radians(int(input("input angle to rotate(deg): ")))
         tb3.rotate(angle)
         dist = float(input("input distance to stright(m): "))
         tb3.straight(dist)
