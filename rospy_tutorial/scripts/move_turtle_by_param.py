@@ -14,7 +14,7 @@ if __name__ == '__main__':
     try:
         kb = GetChar()
         rospy.init_node('move_by_param') 
-        print "type 'Q' to quit."
+        print("type 'Q' to quit.")
 
         while not rospy.is_shutdown():
             param = rospy.get_param("/turtle1/go_turtle")

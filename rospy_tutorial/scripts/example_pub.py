@@ -18,4 +18,4 @@ if __name__ == '__main__':
     try:
         simple_pub()
     except rospy.ROSInterruptException:
-        print "Program terminated"
+        print("Program terminated")

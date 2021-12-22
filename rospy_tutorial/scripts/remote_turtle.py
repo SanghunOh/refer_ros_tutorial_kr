@@ -30,19 +30,19 @@ if __name__ == '__main__':
 
     count = ch = 0
 
-    print msg
+    print(msg)
 
     while not rospy.is_shutdown():
         ch = kb.getch()
 
         if   ch == 'w':
-            tw.linear.x  =  2.0;    print "forward"
+            tw.linear.x  =  2.0;    print("forward")
         elif ch == 's':
-            tw.linear.x  = -2.0;    print "backward"
+            tw.linear.x  = -2.0;    print("backward")
         elif ch == 'a':
-            tw.angular.z =  2.0;    print "turn left"
+            tw.angular.z =  2.0;    print("turn left")
         elif ch == 'd':
-            tw.angular.z = -2.0;    print "turn right"
+            tw.angular.z = -2.0;    print("turn right")
         elif ch == 'Q':             break
         else:                       pass
 
@@ -51,6 +51,6 @@ if __name__ == '__main__':
 
         count = count + 1
         if count == 15:
-            count = 0;    print msg
+            count = 0;    print(msg)
 
         rate.sleep()

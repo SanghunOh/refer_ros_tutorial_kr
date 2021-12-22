@@ -16,7 +16,7 @@ def svc_cb(req):
 def turtlesim_svc_svr():
     rospy.init_node('turtlesim_svc_node')
     svc = rospy.Service('turtlesim_svc', AngDist, svc_cb)
-    print "ready~"
+    print("ready~")
     rospy.spin()
 
 
@@ -53,7 +53,7 @@ def move(distance):
             t1 = rospy.Time.now().to_sec()
             current_distance= speed * (t1 - t0)
     
-    print "end move"
+    print("end move")
     t.linear.x = 0
     p.publish(t)
     return True
@@ -87,7 +87,7 @@ def rotate(angle):
             t1 = rospy.Time.now().to_sec()
             current_angle = speed * (t1 - t0)
     
-    print "end rotate"
+    print("end rotate")
     t.angular.z = 0
     p.publish(t)        
     return True

@@ -13,7 +13,7 @@ if __name__ == '__main__':
     try:
         SetParam()        
         kb_input = GetChar()        
-        print "\nType '1' for 'go', '0' for 'stop', any other key for 'quit'."    
+        print("\nType '1' for 'go', '0' for 'stop', any other key for 'quit'.")  
         
         while not rospy.is_shutdown():        
             key = kb_input.getch()
@@ -26,5 +26,5 @@ if __name__ == '__main__':
                 print(rospy.get_param("/turtle1/go_turtle"))
             else:
                 break
-        print "program terminated"           
+        print("program terminated")     
     except rospy.ROSInterruptException:   pass

@@ -91,7 +91,7 @@ class MarkerPose:
     
         
     def print_pose(self, msg):
-        print "x = %f, y = %f, theta = %f = %f" %(msg.x, msg.y, msg.theta, degrees(msg.theta))
+        print("x = %f, y = %f, theta = %f = %f" %(msg.x, msg.y, msg.theta, degrees(msg.theta))
           
 
 if __name__ == '__main__':

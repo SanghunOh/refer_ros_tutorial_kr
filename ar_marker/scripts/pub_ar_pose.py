@@ -94,7 +94,7 @@ class MarkerPose:
         x  = round(pose2d.x, 2)
         y  = round(pose2d.y, 2);
         th = round(degrees(pose2d.theta), 2)
-        print "pose2d.x = %5s, pose2d.y = %5s, pose2d.theta = %6s" %(x, y, th)
+        print("pose2d.x = %5s, pose2d.y = %5s, pose2d.theta = %6s" %(x, y, th))
           
 
 if __name__ == '__main__':

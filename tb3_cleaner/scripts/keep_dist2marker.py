@@ -42,9 +42,9 @@ class KeepDist:
                     self.dist = msg.pose.pose.position.z
                     self.move2marker()
                 else:
-                    print "wrong marker id!"
+                    print("wrong marker id!"
         else:
-            print "marker not found!"
+            print("marker not found!"
         
                 
     
@@ -70,7 +70,7 @@ class KeepDist:
             self.tw.linear.x = 0
         
         self.pub.publish(self.tw)        
-        print "distance to marker = %f(cm)" %(self.dist * 100)
+        print("distance to marker = %f(cm)" %(self.dist * 100)
           
 
 if __name__ == '__main__':

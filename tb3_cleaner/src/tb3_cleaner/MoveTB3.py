@@ -43,7 +43,7 @@ class MoveTB3:
     def straight(self, distance):
     
         self.update_org()
-        print "start from (%s, %s)" %(round(self.org.x, 2), round(self.org.y, 2))
+        print("start from (%s, %s)" %(round(self.org.x, 2), round(self.org.y, 2)))
         
         tw = Twist()        
         
@@ -54,10 +54,10 @@ class MoveTB3:
                         
         self.pub.publish(tw)        
         while self.elapsed_dist() < abs(distance):  pass
-            #print "%s(m) of %s(m)" %(round(self.elapsed_dist(),2), round(abs(distance),2))
+            #print("%s(m) of %s(m)" %(round(self.elapsed_dist(),2), round(abs(distance),2))
         
         tw.linear.x = 0;    self.pub.publish(tw)
-        print "stop to (%s, %s)." %(round(self.tb3pose.x, 2), round(self.tb3pose.y, 2))        
+        print("stop to (%s, %s)." %(round(self.tb3pose.x, 2), round(self.tb3pose.y, 2)))
     
         
     def elapsed_angle(self):
@@ -66,7 +66,7 @@ class MoveTB3:
     def rotate(self, angle):
         tw = Twist()
         self.update_org()
-        print "start from: %s" %(round(degrees(self.org.theta), 2))
+        print("start from: %s" %(round(degrees(self.org.theta), 2)))
         
         if angle >= 0:	# angle(+): rotate left(ccw)
             tw.angular.z =  ANG_SPD;
@@ -75,9 +75,9 @@ class MoveTB3:
             
         self.pub.publish(tw)
         while self.elapsed_angle() < abs(angle):    pass
-            # print "%s of %s" %(round(degrees(self.elapsed_angle()),2) ,round(degrees(abs(angle)),2))
+            # print("%s of %s" %(round(degrees(self.elapsed_angle()),2) ,round(degrees(abs(angle)),2))
             
         tw.angular.z =  0;  self.pub.publish(tw)
-        print "stop to   : %s" %(round(degrees(self.tb3pose.theta), 2))
+        print("stop to   : %s" %(round(degrees(self.tb3pose.theta), 2)))
 
 

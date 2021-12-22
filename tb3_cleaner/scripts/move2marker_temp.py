@@ -78,7 +78,7 @@ class Move2Marker:
             
                 if msg.id == TARGET_ID:
                 
-                    print "found target marker"
+                    print("found target marker"
                     
                     self.dist_x, self.dist_y, theta = self.get_ar_pose(msg)
                                       
@@ -95,7 +95,7 @@ class Move2Marker:
                 
                     if  self.find_first_time_passed == False:
                         self.find_th  = self.curr_th
-                        print "## get theta to start recognize marker."
+                        print("## get theta to start recognize marker."
                         self.find_first_time_passed = True
                         
                     if self.step1_align2marker_end == True and self.step2_1st_rotation_end == False:
@@ -115,16 +115,16 @@ class Move2Marker:
                         self.approach()
                     
                 else:
-                    print "id mismatch"
+                    print("id mismatch"
                     
                 
         else: # lost marker            
                 
-            print "lost marker"
+            print("lost marker"
         
             if self.find_first_time_passed == True and self.lost_first_time_passed == False:
                 self.lost_th = self.curr_th
-                print "## get theta to end recognize marker."
+                print("## get theta to end recognize marker."
                 self.lost_first_time_passed = True
             
             if self.lost_first_time_passed == True and self.step1_align2marker_end == False:
@@ -212,7 +212,7 @@ class Move2Marker:
     
     
     def align2marker(self):
-        print "## align"
+        print("## align"
         self.tw.angular.z = 0
         self.pub.publish(self.tw)
         
@@ -226,22 +226,22 @@ class Move2Marker:
         
         self.tw.angular.z = 0
         self.pub.publish(self.tw)
-        print "align complete."
+        print("align complete."
         
         
     def get_marker_pose(self):
         self.x = self.dist_x; self.y = self.dist_y; self.th = self.curr_th
-        print "dist_x = %f, dist_y = %f, theta = %f" %(self.x, self.y, degrees(self.th))
+        print("dist_x = %f, dist_y = %f, theta = %f" %(self.x, self.y, degrees(self.th))
                 
     
     def rotate(self, angle):
     
         self.count = self.count + 1
-        print "## rotate %d" %(self.count)
+        print("## rotate %d" %(self.count)
         
         current_angle = self.curr_th
         target_angle  = current_angle + angle
-        print "current = %f, target = %f" %(degrees(target_angle) ,degrees(current_angle))
+        print("current = %f, target = %f" %(degrees(target_angle) ,degrees(current_angle))
         
         if angle < 0:
             self.tw.angular.z = MAX_ANG_SPEED * 0.25 * -1
@@ -262,7 +262,7 @@ class Move2Marker:
         duration = 3.0 * dist / speed
         time2end = rospy.Time.now() + rospy.Duration(duration)
         
-        print "## move for %f(sec)" %(duration)
+        print("## move for %f(sec)" %(duration)
         
         self.tw.linear.x = self.lin_speed       
         self.pub.publish(self.tw)
@@ -285,7 +285,7 @@ class Move2Marker:
         
         
     def approach(self):
-        print "## approach"
+        print("## approach"
         '''
         # marker
         #   |        min    max
@@ -309,7 +309,7 @@ class Move2Marker:
             self.tw.linear.x = 0;   self.pub.publish(self.tw) 
         
         self.pub.publish(self.tw)        
-        print "distance to marker = %f(cm)" %(self.dist * 100)
+        print("distance to marker = %f(cm)" %(self.dist * 100)
           
 
 if __name__ == '__main__':

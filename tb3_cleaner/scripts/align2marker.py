@@ -49,22 +49,22 @@ class AlignMarker:
             
                 if msg.id == TARGET_ID:
                 
-                    print "found target marker"
+                    print("found target marker")
                 
                     if  self.is_1st_find == True:
                         self.find_th  = self.curr_th
-                        print "get theta to start recognize marker."
+                        print("get theta to start recognize marker.")
                         self.is_1st_find  = False
                 else:
-                    print "id mismatch"
+                    print("id mismatch")
                 
         else: # lost marker            
                 
-            print "lost marker"
+            print("lost marker")
         
             if  self.is_1st_find == False and self.is_1st_lost == True:
                 self.lost_th = self.curr_th
-                print "get theta to end recognize marker."
+                print("get theta to end recognize marker.")
                 self.is_1st_lost = False
                 
                 if self.align_finished == False:
@@ -80,7 +80,7 @@ class AlignMarker:
         current = self.curr_th        
         target = current - abs(self.find_th - self.lost_th) * 0.7
         
-        print "get target theta & start rotating."
+        print("get target theta & start rotating.")
         self.tw.angular.z = -MAX_ANG_SPEED * 0.125        
         self.pub.publish(self.tw)
         
@@ -88,7 +88,7 @@ class AlignMarker:
         
         self.tw.angular.z = 0
         self.pub.publish(self.tw)
-        print "align complete."
+        print("align complete."
           
 
 if __name__ == '__main__':

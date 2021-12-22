@@ -31,7 +31,7 @@ class TB3Move:
     def rotate(self, angle):
         tw = Twist()
         self.update_org()
-        print "start from: %s" %(round(degrees(self.org.theta), 2))
+        print("start from: %s" %(round(degrees(self.org.theta), 2)))
         
         if angle >= 0:	# angle(+): rotate left(ccw)
             tw.angular.z =  ANG_SPD;
@@ -40,10 +40,10 @@ class TB3Move:
             
         self.pub.publish(tw)
         while self.elapsed_angle() < abs(angle):    pass
-            # print "%s of %s" %(round(degrees(self.elapsed_angle()),2) ,round(degrees(abs(angle)),2))
+            # print("%s of %s" %(round(degrees(self.elapsed_angle()),2) ,round(degrees(abs(angle)),2))
             
         tw.angular.z =  0;  self.pub.publish(tw)
-        print "stop to   : %s" %(round(degrees(self.tb3pose.theta), 2))        
+        print("stop to   : %s" %(round(degrees(self.tb3pose.theta), 2)))     
 
 if __name__ == '__main__':
     try:

@@ -39,15 +39,15 @@ class TB3Move:
             tw.linear.x = -LIN_SPD
         
         self.update_org()
-        print "start from (%s, %s)." %(round(self.org.x, 2), round(self.org.y, 2))
+        print("start from (%s, %s)." %(round(self.org.x, 2), round(self.org.y, 2)))
         self.pub.publish(tw)    # start move
         
         while self.elapsed_dist() < abs(distance):  pass
         # wait until elapsed distance == target distance
-            # print "%s(m) of %s(m)" %(round(self.elapsed_dist(),2), round(abs(distance),2))
+            # print("%s(m) of %s(m)" %(round(self.elapsed_dist(),2), round(abs(distance),2))
         
         tw.linear.x = 0;    self.pub.publish(tw) # stop move
-        print "stop to (%s, %s)." %(round(self.tb3pose.x, 2), round(self.tb3pose.y, 2))
+        print("stop to (%s, %s)." %(round(self.tb3pose.x, 2), round(self.tb3pose.y, 2)))
 
 if __name__ == '__main__':
     try:

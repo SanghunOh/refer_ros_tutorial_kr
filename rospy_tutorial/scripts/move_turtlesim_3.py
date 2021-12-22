@@ -15,4 +15,4 @@ if __name__ == '__main__':
         while not rospy.is_shutdown():
             move_turtle()
     except rospy.ROSInterruptException:
-        print "Program terminated!"
+        print("Program terminated!")
